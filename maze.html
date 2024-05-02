@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body class="bg-black flex items-center content-center w-screen h-screen">
+    <div class="w-full justify-center flex">
+        <div class="relative">
+            <canvas id="canvas" width="420" height="520">
+            </canvas>
+            
+            <div class="arc justify-center p-5 bg-gradient-to-tl grid from-yellow-400 to-yellow-600">
+                <button id="start" class="bg-red-700 ring-offset-1 shadow-inner hover:bg-red-800 ring-offset-black ring ring-red-600 rounded-full w-[50px] h-[50px]">
+                    
+                </button>
+            </div>
+            <div class="cra justify-center flex flex-col -left-24 drop-shadow-xm text-white items-center font-arc">
+                <center><p class="">Leaderboard</p></center>
+                <div class="grid grid-cols-3 gap-5 text-sm mt-5">
+                    <p>No</p>
+                    <p>Name</p>
+                    <p>Score</p>
+                    <p>1</p>
+                    <p>Grant</p>
+                    <p>221402057</p>
+                    <p>2</p>
+                    <p>Rafi</p>
+                    <p>221402063</p>
+                    <p>3</p>
+                    <p>Thoriq</p>
+                    <p>221402119</p>
+                    <p>4</p>
+                    <p>Ibra</p>
+                    <p>221402104</p>
+                    <p>5</p>
+                    <p>Oswald</p>
+                    <p>221402087</p>
+                </div>
+            </div>
+            <div class="absolute hidden w-[420px] h-[520px] bg-indigo-950 bg-opacity-85 z-50 top-1/2 -translate-y-1/2 justify-center items-center left-0" id="over">
+                <div class="grid text-center text-white font-arc text-4xl">
+                    FINISHED
+                    <span class="text-xl after:content-['s']" id="time"></span>
+                </div>
+            </div>
+            
+
+        </div>
+        <div><button id="start">Start</button></div>
+        <div style="display:none;">
+            <img id="animation" src="img/animations.gif" width="140" height="20">
+            <img id="ghosts" src="img/ghost.png" width="140" height="20">
+        </div>
+        <script src="src/ghost.js"></script>
+        <script src="src/pacman.js"></script>
+        <script src="src/maze.js"></script>
+    </div>
+</body>
+</html>
