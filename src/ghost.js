@@ -1,3 +1,5 @@
+let targetX, targetY;
+
 class Ghost {
     constructor(
         x,
@@ -23,10 +25,22 @@ class Ghost {
         this.imageWidth = imageWidth;
         this.range = range;
         this.randomTargetIndex = parseInt(Math.random() * 4);
-        this.target = randomTargetsForGhosts[this.randomTargetIndex];
+
+
+        
+        do {
+            targetX = Math.floor(Math.random() * map[0].length);
+            targetY = Math.floor(Math.random() * map.length);
+        } while (map[targetY][targetX] !== 2);
+
+        this.target = {
+            x: targetX * oneBlockSize,
+            y: targetY * oneBlockSize
+        };
+
         setInterval(() => {
             this.changeRandomDirection();
-        }, 10000);
+        }, 3000);
     }
 
     isInRange() {
@@ -43,15 +57,32 @@ class Ghost {
 
     changeRandomDirection() {
         let addition = 1;
-        this.randomTargetIndex += addition;
+        this.randomTargetIndex += addition; 
         this.randomTargetIndex = this.randomTargetIndex % 4;
     }
 
     moveProcess() {
         if (this.isInRange()) {
             this.target = pacman;
-        } else {
-            this.target = randomTargetsForGhosts[this.randomTargetIndex];
+            console.log(this.randomTargetIndex+"in range");
+        }
+
+        
+        
+        else {
+            // Check if the ghost has reached its current target
+            if (Math.abs(this.x - this.target.x) <= this.speed &&
+                Math.abs(this.y - this.target.y) <= this.speed) {
+                // Generate a new random target
+                let targetX, targetY;
+                do {
+                    targetX = Math.floor(Math.random() * map[0].length);
+                    targetY = Math.floor(Math.random() * map.length);
+                } while (map[targetY][targetX] !== 2);
+    
+                this.target = { x: targetX * oneBlockSize, y: targetY * oneBlockSize };
+                console.log("New target generated:", this.target);
+            }
         }
         this.changeDirectionIfPossible();
         this.moveForwards();
@@ -175,7 +206,7 @@ class Ghost {
                 for (let i = 0; i < neighborList.length; i++) {
                     queue.push(neighborList[i]);
                 }
-                console.log(this.direction);
+                // console.log(this.direction);
             }
         }
 
@@ -251,6 +282,19 @@ class Ghost {
             this.currentFrame == this.frameCount ? 1 : this.currentFrame + 1;
     }
 
+    drawTarget() {
+        canvasContext.beginPath();
+        canvasContext.strokeStyle = "red";
+        canvasContext.arc(
+            this.target.x + oneBlockSize / 2,
+            this.target.y + oneBlockSize / 2,
+            5, // Adjust the radius as needed
+            0,
+            2 * Math.PI
+        );
+        canvasContext.stroke();
+    }
+
     draw() {
         canvasContext.save();
         canvasContext.drawImage(
@@ -284,8 +328,10 @@ let updateGhosts = () => {
     }
 };
 
+
 let drawGhosts = () => {
     for (let i = 0; i < ghosts.length; i++) {
         ghosts[i].draw();
+        ghosts[i].drawTarget(); // Draw the target for each ghost
     }
-};
+}
