@@ -147,7 +147,7 @@ class Ghost {
         } else {
             this.moveBackwards();
         }
-        console.log(this.direction);
+        /* console.log(this.direction); */
     }
 
     calculateNewDirection(map, destX, destY) {
@@ -175,6 +175,7 @@ class Ghost {
                 for (let i = 0; i < neighborList.length; i++) {
                     queue.push(neighborList[i]);
                 }
+                console.log(this.direction);
             }
         }
 
