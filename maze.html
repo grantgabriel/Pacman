@@ -12,10 +12,27 @@
             <canvas id="canvas" width="420" height="520">
             </canvas>
             
-            <div class="arc justify-center p-5 bg-gradient-to-tl grid from-yellow-400 to-yellow-600">
-                <button id="start" class="bg-red-700 ring-offset-1 shadow-inner hover:bg-red-800 ring-offset-black ring ring-red-600 rounded-full w-[50px] h-[50px]">
+            <div class="arc justify-center bg-gradient-to-tl grid from-yellow-400 to-yellow-600">
+                <button id="start" class="bg-red-700 mt-5 m-auto ring-offset-1 shadow-inner hover:bg-red-800 ring-offset-black ring ring-red-600 rounded-full w-[50px] h-[50px]">
                     
                 </button>
+                <div class="flex flex-col">
+                    <div class="flex justify-center">
+                        <button class="w-6 h-6 rounded-full bg-yellow-600 shadow-inner border border-black"></button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 ml-2">
+                        <button class="w-6 h-6 rounded-full bg-blue-600 shadow-inner border border-black"></button>
+                        <button class="w-6 h-6 rounded-full bg-red-800 shadow-inner border border-black"></button>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class="w-6 h-6 rounded-full bg-green-700 shadow-inner border border-black"></button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 justify-end gap-1 h-fit p-2">
+                    <a href="index.html" class="bg-gray-400 border border-black h-4 w-8 pb-2 px-3 font-bold rounded-l-full text-xs items-center">&lt;</a>
+                    <button disabled class="bg-gray-700 border border-black h-4 w-8 pb-2 font-bold rounded-r-full text-white text-xs">&gt;</button>
+                </div>
             </div>
             <div class="cra justify-center flex flex-col -left-24 drop-shadow-xm text-white items-center font-arc">
                 <center><p class="">Leaderboard</p></center>
