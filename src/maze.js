@@ -86,7 +86,6 @@ let onGhostCollision = () => {
     gameOver.classList.add("flex");
 
     clearInterval(timer);
-    clearInterval(gameInterval);
     timeFinish.innerHTML = time.toFixed(3);
 };
 
@@ -185,7 +184,7 @@ let drawWalls = () => {
 
 let createGhosts = () => {
     ghosts = [];
-    for (let i = 0; i < ghostCount * 1; i++) {
+    for (let i = 0; i < ghostCount * 2; i++) {
         let newGhost = new Ghost(
             11 * oneBlockSize - 10 * oneBlockSize,
             18 * oneBlockSize + 0    * oneBlockSize,
@@ -196,7 +195,7 @@ let createGhosts = () => {
             ghostImageLocations[i % 4].y,
             124,
             116,
-            5
+            2
         );
         ghosts.push(newGhost);
     }

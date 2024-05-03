@@ -1,4 +1,4 @@
-let targetX, targetY;
+
 
 class Ghost {
     constructor(
@@ -13,6 +13,8 @@ class Ghost {
         imageHeight,
         range
     ) {
+        this.targetX;
+        this.targetY;
         this.x = x;
         this.y = y;
         this.width = width;
@@ -26,23 +28,27 @@ class Ghost {
         this.range = range;
         this.randomTargetIndex = parseInt(Math.random() * 4);
 
+        
+
 
         
         do {
-            targetX = Math.floor(Math.random() * map[0].length);
-            targetY = Math.floor(Math.random() * map.length);
-        } while (map[targetY][targetX] !== 2);
+            this.targetX = Math.floor(Math.random() * map[0].length);
+            this.targetY = Math.floor(Math.random() * map.length);
+        } while (map[this.targetY][this.targetX] !== 2);
 
         this.target = {
-            x: targetX * oneBlockSize,
-            y: targetY * oneBlockSize
+            x: this.targetX * oneBlockSize,
+            y: this.targetY * oneBlockSize
         };
 
-        setInterval(() => {
-            this.changeRandomDirection();
-        }, 3000);
+
+        
+        
+        
     }
 
+    
     isInRange() {
         let xDistance = Math.abs(pacman.getMapX() - this.getMapX());
         let yDistance = Math.abs(pacman.getMapY() - this.getMapY());
@@ -54,6 +60,7 @@ class Ghost {
         }
         return false;
     }
+    
 
     changeRandomDirection() {
         let addition = 1;
@@ -74,16 +81,16 @@ class Ghost {
             if (Math.abs(this.x - this.target.x) <= this.speed &&
                 Math.abs(this.y - this.target.y) <= this.speed) {
                 // Generate a new random target
-                let targetX, targetY;
                 do {
-                    targetX = Math.floor(Math.random() * map[0].length);
-                    targetY = Math.floor(Math.random() * map.length);
-                } while (map[targetY][targetX] !== 2);
+                    this.targetX = Math.floor(Math.random() * map[0].length);
+                    this.targetY = Math.floor(Math.random() * map.length);
+                } while (map[this.targetY][this.targetX] !== 2);
     
-                this.target = { x: targetX * oneBlockSize, y: targetY * oneBlockSize };
+                this.target = { x: this.targetX * oneBlockSize, y: this.targetY * oneBlockSize };
                 console.log("New target generated:", this.target);
             }
         }
+
         this.changeDirectionIfPossible();
         this.moveForwards();
         if (this.checkCollisions()) {
@@ -142,7 +149,7 @@ class Ghost {
                 parseInt(this.x / oneBlockSize + 0.9999)
             ] == 1
         ) {
-            isCollided = true;
+            isCollided = true;;
         }
         return isCollided;
     }
@@ -156,6 +163,7 @@ class Ghost {
         );
         if (typeof this.direction == "undefined") {
             this.direction = tempDirection;
+            console.log("undefined");
             return;
         }
         if (
@@ -288,7 +296,7 @@ class Ghost {
         canvasContext.arc(
             this.target.x + oneBlockSize / 2,
             this.target.y + oneBlockSize / 2,
-            5, // Adjust the radius as needed
+            5,
             0,
             2 * Math.PI
         );
@@ -319,6 +327,8 @@ class Ghost {
             2 * Math.PI
         );
         canvasContext.stroke();
+        
+        console.log(this.x,this.y)
     }
 }
 
@@ -335,3 +345,5 @@ let drawGhosts = () => {
         ghosts[i].drawTarget(); // Draw the target for each ghost
     }
 }
+
+
