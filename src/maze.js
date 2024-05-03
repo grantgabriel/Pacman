@@ -109,6 +109,9 @@ let restartPacmanAndGhosts = () => {
 
 let onGhostCollision = () => {
     lives--;
+    for (let i = 0; i < ghostCount * 2; i++) {
+        ghosts.pop();
+    }
     gameOver.classList.remove("hidden");
     gameOver.classList.add("flex");
 
