@@ -235,7 +235,7 @@ createNewPacman();
 let startTime;
 let newBGM = new Audio('../bgm/inter.mp3');
 startButton.addEventListener("click", () => {
-    clearInterval(timer);
+    // clearInterval(timer);
     newBGM.currentTime = 0;
     createGhosts();
     gameLoop();
