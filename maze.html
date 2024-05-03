@@ -4,39 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maze</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body class="bg-black flex items-center content-center w-screen h-screen">
-    <div class="w-full justify-center flex">
+<body class="flex items-center content-center bg-black w-screen h-screen">
+    <div class="flex justify-center w-full">
         <div class="relative">
             <canvas id="canvas" width="420" height="520">
             </canvas>
             
-            <div class="arc justify-center bg-gradient-to-tl grid from-yellow-400 to-yellow-600">
-                <button id="start" class="bg-red-700 mt-5 m-auto ring-offset-1 shadow-inner hover:bg-red-800 ring-offset-black ring ring-red-600 rounded-full w-[50px] h-[50px]">
+            <div class="justify-center grid bg-gradient-to-tl from-yellow-400 to-yellow-600 arc">
+                <button id="start" class="bg-red-700 hover:bg-red-800 shadow-inner m-auto mt-5 rounded-full w-[50px] h-[50px] ring ring-offset-1 ring-offset-black ring-red-600">
                     
                 </button>
                 <div class="flex flex-col">
                     <div class="flex justify-center">
-                        <button class="w-6 h-6 rounded-full bg-yellow-600 shadow-inner border border-black"></button>
+                        <button class="bg-yellow-600 shadow-inner border border-black rounded-full w-6 h-6"></button>
                     </div>
-                    <div class="grid grid-cols-2 gap-2 ml-2">
-                        <button class="w-6 h-6 rounded-full bg-blue-600 shadow-inner border border-black"></button>
-                        <button class="w-6 h-6 rounded-full bg-red-800 shadow-inner border border-black"></button>
+                    <div class="gap-2 grid grid-cols-2 ml-2">
+                        <button class="bg-blue-600 shadow-inner border border-black rounded-full w-6 h-6"></button>
+                        <button class="bg-red-800 shadow-inner border border-black rounded-full w-6 h-6"></button>
                     </div>
                     <div class="flex justify-center">
-                        <button class="w-6 h-6 rounded-full bg-green-700 shadow-inner border border-black"></button>
+                        <button class="bg-green-700 shadow-inner border border-black rounded-full w-6 h-6"></button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 justify-end gap-1 h-fit p-2">
-                    <a href="index.html" class="bg-gray-400 border border-black h-4 w-8 pb-2 px-3 font-bold rounded-l-full text-xs items-center">&lt;</a>
-                    <button disabled class="bg-gray-700 border border-black h-4 w-8 pb-2 font-bold rounded-r-full text-white text-xs">&gt;</button>
+                <div class="justify-end gap-1 grid grid-cols-2 p-2 h-fit">
+                    <a href="index.html" class="items-center bg-gray-400 px-3 pb-2 border border-black rounded-l-full w-8 h-4 font-bold text-xs">&lt;</a>
+                    <button disabled class="bg-gray-700 pb-2 border border-black rounded-r-full w-8 h-4 font-bold text-white text-xs">&gt;</button>
                 </div>
             </div>
-            <div class="cra justify-center flex flex-col -left-24 drop-shadow-xm text-white items-center font-arc">
+            <div class="-left-24 flex flex-col justify-center items-center drop-shadow-xm font-arc text-white cra">
                 <center><p class="">Leaderboard</p></center>
-                <div class="grid grid-cols-3 gap-5 text-sm mt-5">
+                <div class="gap-5 grid grid-cols-3 mt-5 text-sm">
                     <p>No</p>
                     <p>Name</p>
                     <p>Score</p>
@@ -57,10 +57,10 @@
                     <p>221402087</p>
                 </div>
             </div>
-            <div class="absolute hidden w-[420px] h-[520px] bg-indigo-950 bg-opacity-85 z-50 top-1/2 -translate-y-1/2 justify-center items-center left-0" id="over">
-                <div class="grid text-center text-white font-arc text-4xl">
+            <div class="top-1/2 left-0 z-50 absolute justify-center items-center hidden bg-indigo-950 bg-opacity-85 w-[420px] h-[520px] -translate-y-1/2" id="over">
+                <div class="grid font-arc text-4xl text-center text-white">
                     FINISHED
-                    <span class="text-xl after:content-['s']" id="time"></span>
+                    <span class="after:content-['s'] text-xl" id="time"></span>
                 </div>
             </div>
             
