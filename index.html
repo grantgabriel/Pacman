@@ -1,22 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pacman</title>
+    <title>Maze</title>
+    <link rel="stylesheet" href="main.css">
 </head>
+<body class="bg-black flex items-center content-center w-screen h-screen">
+    <div class="w-full justify-center flex">
+        <div class="relative">
+            <canvas class="border-[#342DCA] border-b-4" id="canvas" width="420" height="516">
+            </canvas>
+            <div class="arc justify-center bg-gradient-to-tl grid from-yellow-400 to-yellow-600">
+                <button id="start" class="bg-red-700 m-5 ring-offset-1 shadow-inner hover:bg-red-800 ring-offset-black ring ring-red-600 rounded-full w-[50px] h-[50px]">
+                    
+                </button>
+                <div class="flex flex-col">
+                    <div class="flex justify-center">
+                        <button class="w-6 h-6 rounded-full bg-yellow-600 shadow-inner border border-black"></button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 ml-2">
+                        <button class="w-6 h-6 rounded-full bg-blue-600 shadow-inner border border-black"></button>
+                        <button class="w-6 h-6 rounded-full bg-red-800 shadow-inner border border-black"></button>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class="w-6 h-6 rounded-full bg-green-700 shadow-inner border border-black"></button>
+                    </div>
+                </div>
 
-<body style="margin: 0; background-color: black;">
-    <canvas id="canvas" width="500" height="500"></canvas>
-    <div style="display:none;">
-        <img id="animation" src="img/animations.gif" width="140" height="20">
-        <img id="ghosts" src="img/ghost.png" width="140" height="20">
+                <div class="grid grid-cols-2 justify-end gap-1 h-fit p-2">
+                    <button disabled class="bg-gray-700 border border-black h-4 w-8 pb-2 font-bold rounded-l-full text-white text-xs">&lt;</button>
+                    <a href="maze.html" class="bg-gray-400 border border-black h-4 w-8 pb-2 px-3 font-bold rounded-r-full text-xs items-center">&gt;</a>
+                </div>
+            </div>
+            <div class="cra justify-center flex flex-col -left-24 drop-shadow-xm text-white items-center font-arc">
+                <center><p class="">Leaderboard</p></center>
+                <div class="grid grid-cols-3 gap-5 text-sm mt-5">
+                    <p>No</p>
+                    <p>Name</p>
+                    <p>Score</p>
+                    <p>1</p>
+                    <p>Grant</p>
+                    <p>221402057</p>
+                    <p>2</p>
+                    <p>Rafi</p>
+                    <p>221402063</p>
+                    <p>3</p>
+                    <p>Thoriq</p>
+                    <p>221402119</p>
+                    <p>4</p>
+                    <p>Ibra</p>
+                    <p>221402104</p>
+                    <p>5</p>
+                    <p>Oswald</p>
+                    <p>221402087</p>
+                </div>
+            </div>
+              
+        </div>
+        <div><button id="start">Start</button></div>
+        <div style="display:none;">
+            <img id="animation" src="img/animations.gif" width="140" height="20">
+            <img id="ghosts" src="img/ghost.png" width="140" height="20">
+        </div>
+       
+        <script src="src/ghost.js"></script>
+        <script src="src/pacman.js"></script>
+        <script src="src/game.js"></script>
     </div>
-    <script src="src/ghost.js"></script>
-    <script src="src/pacman.js"></script>
-    <script src="src/game.js"></script>
 </body>
-
 </html>
