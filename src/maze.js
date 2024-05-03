@@ -231,12 +231,17 @@ let createGhosts = () => {
 // Jadiin tombol start nanti
 
 createNewPacman();
+
 let startTime;
+let newBGM = new Audio('../bgm/inter.mp3');
 startButton.addEventListener("click", () => {
+    clearInterval(timer);
+    newBGM.currentTime = 0;
     createGhosts();
     gameLoop();
     restartPacmanAndGhosts();
-    
+    newBGM.volume = 1;
+    newBGM.play();
     gameOver.classList.add("hidden");
     gameOver.classList.remove("flex");
     startTime = performance.now(); // Start time for the timer
