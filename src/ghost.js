@@ -214,7 +214,7 @@ class Ghost {
                 for (let i = 0; i < neighborList.length; i++) {
                     queue.push(neighborList[i]);
                 }
-                // console.log(this.direction);
+                
             }
         }
 
