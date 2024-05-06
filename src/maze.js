@@ -233,7 +233,7 @@ let createGhosts = () => {
 createNewPacman();
 
 let startTime;
-let newBGM = new Audio('../bgm/inter.mp3');
+let newBGM = new Audio('./bgm/inter.mp3');
 startButton.addEventListener("click", () => {
     // clearInterval(timer);
     newBGM.currentTime = 0;

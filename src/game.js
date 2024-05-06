@@ -2,7 +2,7 @@ const canvas = document.getElementById("canvas");
 const canvasContext = canvas.getContext("2d");
 const pacmanFrames = document.getElementById("animation");
 const ghostFrames = document.getElementById("ghosts");
-let pacmanBGM = new Audio("../bgm/game.mp3");
+let pacmanBGM = new Audio("./bgm/game.mp3");
 
 let createRect = (x, y, width, height, color) => {
     canvasContext.fillStyle = color;
