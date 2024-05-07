@@ -80,6 +80,7 @@ let randomTargetsForGhosts = [
 let createNewPacman = () => {
     pacmanBGM.currentTime = 0;
     pacmanBGM.play();
+    pacmanBGM.loop = true;
     pacman = new Pacman(
         oneBlockSize,
         oneBlockSize,
